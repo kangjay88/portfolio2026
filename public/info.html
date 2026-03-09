@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Info – Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/output.css" />
+</head>
+<body class="grain">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between animate-slide-down">
+    <a href="/" class="font-display text-base-50 text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors duration-300">
+      Your Name
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300">Work</a>
+      <a href="info.html" class="font-body text-sm text-base-50 transition-colors duration-300">Info</a>
+      <a href="archive.html" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300">Archive</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <nav class="flex flex-col items-center gap-4">
+      <a href="/">Work</a>
+      <a href="info.html">Info</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-32 pb-20 px-6 md:px-12 lg:px-20">
+    <div class="max-w-3xl">
+
+      <!-- Page title -->
+      <span class="font-mono text-xs text-base-400 tracking-widest uppercase block mb-4 animate-fade-in">About</span>
+      <h1 class="font-display text-4xl md:text-6xl font-bold text-base-50 tracking-tight leading-tight animate-slide-up delay-100">
+        A bit about me
+      </h1>
+
+      <!-- Divider -->
+      <div class="h-px bg-base-800 my-10 animate-line-grow delay-300"></div>
+
+      <!-- Bio -->
+      <div class="space-y-6 text-base-300 font-body text-base md:text-lg leading-relaxed animate-fade-in delay-500">
+        <p>
+          I'm a designer and developer based in <span class="text-base-50">Fullerton, California</span>.
+          I build thoughtful digital experiences — from concept through code — with a focus on
+          clean design, smooth interactions, and purposeful functionality.
+        </p>
+        <p>
+          My work sits at the intersection of visual design and front-end engineering.
+          I care about typography, motion, and the small details that make interfaces
+          feel polished and intentional.
+        </p>
+        <p>
+          When I'm not pushing pixels or writing code, you'll find me exploring new music,
+          reading about design systems, or working on side projects that nobody asked for.
+        </p>
+      </div>
+
+      <!-- Skills / Tools -->
+      <div class="mt-16 animate-fade-in delay-700">
+        <h2 class="font-display text-xl font-semibold text-base-50 mb-6">Tools & Technologies</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Frontend</span>
+            <span class="font-body text-sm text-base-200">HTML, CSS, JavaScript</span>
+          </div>
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Frameworks</span>
+            <span class="font-body text-sm text-base-200">Tailwind, React, Node.js</span>
+          </div>
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Design</span>
+            <span class="font-body text-sm text-base-200">Figma, After Effects</span>
+          </div>
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Backend</span>
+            <span class="font-body text-sm text-base-200">Express, PostgreSQL</span>
+          </div>
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Tools</span>
+            <span class="font-body text-sm text-base-200">Git, VS Code, Vercel</span>
+          </div>
+          <div class="px-4 py-3 border border-base-800 rounded-lg">
+            <span class="font-mono text-xs text-base-400 block mb-1">Other</span>
+            <span class="font-body text-sm text-base-200">GSAP, Three.js</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connect -->
+      <div class="mt-16 animate-fade-in delay-800">
+        <h2 class="font-display text-xl font-semibold text-base-50 mb-6">Let's connect</h2>
+        <div class="flex flex-wrap gap-4">
+          <a href="mailto:hello@yourname.com" class="px-5 py-2.5 border border-base-600 rounded-full text-sm font-body text-base-200 hover:border-accent hover:text-accent transition-all duration-300">
+            Email
+          </a>
+          <a href="#" class="px-5 py-2.5 border border-base-600 rounded-full text-sm font-body text-base-200 hover:border-accent hover:text-accent transition-all duration-300">
+            GitHub
+          </a>
+          <a href="#" class="px-5 py-2.5 border border-base-600 rounded-full text-sm font-body text-base-200 hover:border-accent hover:text-accent transition-all duration-300">
+            LinkedIn
+          </a>
+          <a href="#" class="px-5 py-2.5 border border-base-600 rounded-full text-sm font-body text-base-200 hover:border-accent hover:text-accent transition-all duration-300">
+            Twitter / X
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 lg:px-20 py-10 border-t border-base-800">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <span class="font-body text-xs text-base-400">&copy; 2026</span>
+      <p class="font-body text-xs text-base-400">Design &amp; Development by <span class="text-base-200">Your Name</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name – Designer & Developer</title>
+  <meta name="description" content="Portfolio of a designer & developer. Selected work, projects, and experiments." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind compiled CSS -->
+  <link rel="stylesheet" href="css/output.css" />
+</head>
+
+<body class="grain">
+
+  <!-- ════════════════════════════════════════════
+       HEADER / TOP BAR
+       ════════════════════════════════════════════ -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between animate-slide-down">
+    <!-- Logo / Name -->
+    <a href="/" class="font-display text-base-50 text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors duration-300">
+      Your Name
+    </a>
+
+    <!-- Desktop nav links (hidden on mobile) -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300 relative group">
+        Work
+        <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-400 group-hover:w-full"></span>
+      </a>
+      <a href="/info" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300 relative group">
+        Info
+        <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-400 group-hover:w-full"></span>
+      </a>
+      <a href="/archive" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300 relative group">
+        Archive
+        <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-400 group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <!-- Hamburger (visible on all screens for full-screen overlay) -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- ════════════════════════════════════════════
+       FULL-SCREEN NAV OVERLAY
+       ════════════════════════════════════════════ -->
+  <div class="nav-overlay" id="navOverlay">
+    <nav class="flex flex-col items-center gap-4">
+      <a href="/" class="nav-link">Work</a>
+      <a href="/info" class="nav-link">Info</a>
+      <a href="/archive" class="nav-link">Archive</a>
+    </nav>
+    <div class="mt-12 text-base-400 text-sm font-body tracking-wide">
+      <a href="mailto:hello@yourname.com" class="hover:text-accent transition-colors duration-300">hello@yourname.com</a>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       HERO SECTION
+       ════════════════════════════════════════════ -->
+  <main>
+    <section class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-24 pb-16 relative overflow-hidden">
+
+      <!-- Decorative thin line -->
+      <div class="absolute top-[45%] left-0 right-0 h-px bg-base-800 animate-line-grow delay-800"></div>
+
+      <!-- Hero text block -->
+      <div class="relative z-10">
+        <!-- First name — filled -->
+        <h1 class="hero-title animate-slide-up delay-200">
+          Your
+        </h1>
+        <!-- First name — outline duplicate (stacked effect like the reference) -->
+        <h1 class="hero-title-outline animate-slide-up delay-300 -mt-2 md:-mt-4" aria-hidden="true">
+          Your
+        </h1>
+
+        <!-- Last name — filled -->
+        <h1 class="hero-title animate-slide-up delay-400">
+          Name
+        </h1>
+        <!-- Last name — outline duplicate -->
+        <h1 class="hero-title-outline animate-slide-up delay-500 -mt-2 md:-mt-4" aria-hidden="true">
+          Name
+        </h1>
+      </div>
+
+      <!-- Subtitle row -->
+      <div class="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6 relative z-10">
+        <div>
+          <p class="subtitle animate-slide-up delay-600">
+            Designer &
+          </p>
+          <p class="subtitle animate-slide-up delay-700">
+            Developer
+          </p>
+        </div>
+
+        <div class="flex items-center gap-6 animate-fade-in delay-1000">
+          <!-- Location -->
+          <span class="font-mono text-xs text-base-400 tracking-wider uppercase">
+            Fullerton, CA
+          </span>
+          <!-- Live clock -->
+          <span class="font-mono text-xs text-base-400 tracking-wider tabular-nums" id="liveClock">
+            00:00:00
+          </span>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="mt-10 animate-scale-in delay-1200">
+        <a href="mailto:hello@yourname.com"
+           class="inline-flex items-center gap-2 px-6 py-3 border border-base-600 rounded-full
+                  text-sm font-body text-base-200 tracking-wide
+                  hover:border-accent hover:text-accent transition-all duration-400
+                  group">
+          Contact
+          <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         FEATURED PROJECTS SECTION
+         ════════════════════════════════════════════ -->
+    <section class="py-16 md:py-24">
+      <!-- Section header -->
+      <div class="px-6 md:px-12 lg:px-20 mb-8 flex items-end justify-between">
+        <div>
+          <span class="font-mono text-xs text-base-400 tracking-widest uppercase block mb-2">Featured Projects</span>
+          <h2 class="font-display text-2xl md:text-3xl font-bold text-base-50 tracking-tight">Selected Work</h2>
+        </div>
+        <span class="font-mono text-xs text-base-400 hidden md:block">(Scroll →)</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="mx-6 md:mx-12 lg:mx-20 h-px bg-base-800 mb-8"></div>
+
+      <!-- Horizontal scroll carousel -->
+      <div class="carousel" id="projectCarousel">
+
+        <!-- ── Project Card 01 ── -->
+        <a href="/projects/project-one" class="project-card w-[320px] md:w-[400px] aspect-[4/5] bg-base-900 block">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80"
+               alt="Project One — Abstract gradients"
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay bg-gradient-to-t from-base-950/90 via-base-950/30 to-transparent">
+            <span class="font-mono text-xs text-base-400 mb-1">01</span>
+            <h3 class="font-display text-xl font-bold text-base-50 tracking-tight">Project One</h3>
+            <p class="card-cta font-body text-sm text-accent mt-2 flex items-center gap-1">
+              View project
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </div>
+        </a>
+
+        <!-- ── Project Card 02 ── -->
+        <a href="/projects/project-two" class="project-card w-[320px] md:w-[400px] aspect-[4/5] bg-base-900 block">
+          <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80"
+               alt="Project Two — 3D visualization"
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay bg-gradient-to-t from-base-950/90 via-base-950/30 to-transparent">
+            <span class="font-mono text-xs text-base-400 mb-1">02</span>
+            <h3 class="font-display text-xl font-bold text-base-50 tracking-tight">Project Two</h3>
+            <p class="card-cta font-body text-sm text-accent mt-2 flex items-center gap-1">
+              View project
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </div>
+        </a>
+
+        <!-- ── Project Card 03 ── -->
+        <a href="/projects/project-three" class="project-card w-[320px] md:w-[400px] aspect-[4/5] bg-base-900 block">
+          <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80"
+               alt="Project Three — Abstract art"
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay bg-gradient-to-t from-base-950/90 via-base-950/30 to-transparent">
+            <span class="font-mono text-xs text-base-400 mb-1">03</span>
+            <h3 class="font-display text-xl font-bold text-base-50 tracking-tight">Project Three</h3>
+            <p class="card-cta font-body text-sm text-accent mt-2 flex items-center gap-1">
+              View project
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </div>
+        </a>
+
+        <!-- ── Project Card 04 ── -->
+        <a href="/projects/project-four" class="project-card w-[320px] md:w-[400px] aspect-[4/5] bg-base-900 block">
+          <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80"
+               alt="Project Four — Color gradients"
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay bg-gradient-to-t from-base-950/90 via-base-950/30 to-transparent">
+            <span class="font-mono text-xs text-base-400 mb-1">04</span>
+            <h3 class="font-display text-xl font-bold text-base-50 tracking-tight">Project Four</h3>
+            <p class="card-cta font-body text-sm text-accent mt-2 flex items-center gap-1">
+              View project
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </div>
+        </a>
+
+        <!-- ── Project Card 05 ── -->
+        <a href="/projects/project-five" class="project-card w-[320px] md:w-[400px] aspect-[4/5] bg-base-900 block">
+          <img src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=800&q=80"
+               alt="Project Five — Digital art"
+               class="w-full h-full object-cover" loading="lazy" />
+          <div class="card-overlay bg-gradient-to-t from-base-950/90 via-base-950/30 to-transparent">
+            <span class="font-mono text-xs text-base-400 mb-1">05</span>
+            <h3 class="font-display text-xl font-bold text-base-50 tracking-tight">Project Five</h3>
+            <p class="card-cta font-body text-sm text-accent mt-2 flex items-center gap-1">
+              View project
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </p>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Carousel indicator -->
+      <div class="px-6 md:px-12 lg:px-20 mt-4 flex items-center gap-3">
+        <span class="font-mono text-xs text-base-400">
+          <span id="currentSlide">1</span> / 5
+        </span>
+        <span class="font-body text-xs text-base-400">featured work</span>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════ -->
+    <footer class="px-6 md:px-12 lg:px-20 py-10 border-t border-base-800">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-center gap-6">
+          <span class="font-body text-xs text-base-400">&copy; 2026</span>
+          <a href="/imprint" class="font-body text-xs text-base-400 hover:text-base-200 transition-colors">
+            Imprint &amp; Data Privacy
+          </a>
+        </div>
+        <p class="font-body text-xs text-base-400">
+          Design &amp; Development by <span class="text-base-200">Your Name</span>
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       JAVASCRIPT
+       ════════════════════════════════════════════ -->
+  <script src="js/main.js"></script>
+</body>
+</html>

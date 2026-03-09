@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive – Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/output.css" />
+</head>
+<body class="grain">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between animate-slide-down">
+    <a href="/" class="font-display text-base-50 text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors duration-300">
+      Your Name
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="/" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300">Work</a>
+      <a href="info.html" class="font-body text-sm text-base-300 hover:text-base-50 transition-colors duration-300">Info</a>
+      <a href="archive.html" class="font-body text-sm text-base-50 transition-colors duration-300">Archive</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- NAV OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <nav class="flex flex-col items-center gap-4">
+      <a href="/">Work</a>
+      <a href="info.html">Info</a>
+      <a href="archive.html">Archive</a>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+  <main class="pt-32 pb-20 px-6 md:px-12 lg:px-20">
+
+    <!-- Page title -->
+    <span class="font-mono text-xs text-base-400 tracking-widest uppercase block mb-4 animate-fade-in">Archive</span>
+    <h1 class="font-display text-4xl md:text-6xl font-bold text-base-50 tracking-tight leading-tight animate-slide-up delay-100">
+      All Projects
+    </h1>
+
+    <div class="h-px bg-base-800 my-10 animate-line-grow delay-300"></div>
+
+    <!-- Archive list — table-style on desktop, cards on mobile -->
+    <div class="animate-fade-in delay-500">
+
+      <!-- Table header (desktop) -->
+      <div class="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-base-800 mb-2">
+        <span class="col-span-1 font-mono text-xs text-base-400 uppercase tracking-wider">#</span>
+        <span class="col-span-4 font-mono text-xs text-base-400 uppercase tracking-wider">Project</span>
+        <span class="col-span-3 font-mono text-xs text-base-400 uppercase tracking-wider">Category</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 uppercase tracking-wider">Year</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 uppercase tracking-wider text-right">Link</span>
+      </div>
+
+      <!-- Row 01 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">01</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Project One</span>
+        <span class="col-span-3 font-body text-sm text-base-400">Web Design</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2026</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+      <!-- Row 02 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">02</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Project Two</span>
+        <span class="col-span-3 font-body text-sm text-base-400">Branding</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2025</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+      <!-- Row 03 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">03</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Project Three</span>
+        <span class="col-span-3 font-body text-sm text-base-400">Development</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2025</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+      <!-- Row 04 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">04</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Project Four</span>
+        <span class="col-span-3 font-body text-sm text-base-400">UI/UX Design</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2024</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+      <!-- Row 05 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">05</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Project Five</span>
+        <span class="col-span-3 font-body text-sm text-base-400">Motion / 3D</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2024</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+      <!-- Row 06 -->
+      <a href="#" class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800/60 group hover:bg-base-900/50 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400">06</span>
+        <span class="col-span-4 font-body text-base-100 group-hover:text-accent transition-colors duration-300">Side Project</span>
+        <span class="col-span-3 font-body text-sm text-base-400">Experiment</span>
+        <span class="col-span-2 font-mono text-sm text-base-400">2024</span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 lg:px-20 py-10 border-t border-base-800">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <span class="font-body text-xs text-base-400">&copy; 2026</span>
+      <p class="font-body text-xs text-base-400">Design &amp; Development by <span class="text-base-200">Your Name</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

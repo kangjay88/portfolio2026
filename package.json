@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "A modern developer portfolio inspired by rylanphillips.com",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/cli": "^4.0.0"
+  }
+}
