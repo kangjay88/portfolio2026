@@ -3,7 +3,7 @@
   // Expects: project (object), index (number)
   const num = String(index + 1).padStart(2, '0');
 %>
-<a href="/projects/<%= project.slug %>" class="project-card w-[320px] md:w-[400px] aspect-[4/5] block">
+<a href="/projects/<%= project.slug %>" class="project-card w-[70vw] sm:w-[34vw] md:w-[18vw] h-[55vw] sm:h-[25vw] md:h-[13vw] block">
   <img src="<%= project.thumbnail %>"
        alt="<%= project.title %> — <%= project.category %>"
        class="w-full h-full object-cover" loading="lazy" />

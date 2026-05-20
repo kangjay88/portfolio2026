@@ -123,15 +123,17 @@
   .preloader {
     position: fixed; inset: 0; z-index: 1000;
     background-color: var(--color-base-950);
-    display: flex; align-items: flex-end;
-    padding: 2rem 1.5rem 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem 1.5rem;
     transition: opacity 0.45s var(--ease-out-expo), visibility 0s linear 0.45s;
   }
   .preloader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
   .preloader-inner {
     width: 100%;
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+    display: flex; flex-direction: row; align-items: flex-end; justify-content: space-between;
+    gap: 2rem;
   }
+  .preloader-sub { padding-bottom: 0.6rem; }
   .preloader-title {
     font-family: var(--font-display); font-weight: 800;
     font-size: clamp(3.5rem, 12vw, 11rem);
@@ -142,7 +144,6 @@
     font-family: var(--font-mono); font-size: 0.75rem;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--color-base-400);
-    padding-bottom: 0.5rem;
   }
 }
 

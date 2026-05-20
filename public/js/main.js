@@ -116,7 +116,7 @@
   window.addEventListener('DOMContentLoaded', init);
 
   function init() {
-    runPreloader().then(startMain);
+    runPreloader();
   }
 
   function startMain() {
@@ -137,12 +137,16 @@
   // ────────────────────────────────────────
   function runPreloader() {
     const loader = document.getElementById('preloader');
-    if (!loader) return Promise.resolve();
+    if (!loader) {
+      startMain();
+      return Promise.resolve();
+    }
 
     const title = loader.querySelector('[data-preloader-title]');
     const sub = loader.querySelector('[data-preloader-sub]');
     if (!title || !sub) {
       loader.remove();
+      startMain();
       return Promise.resolve();
     }
 
@@ -155,7 +159,9 @@
       shuffleTo(sub, subText, 25),
     ]);
 
-    // Phase 2: brief hold, then scramble away + fade
+    // Phase 2: brief hold, then scramble away. Kick off the home entrance
+    // animations BEFORE the loader fades so GSAP locks each target at its
+    // from-state behind the still-opaque overlay — no flash, no replay.
     return inP
       .then(() => new Promise(r => setTimeout(r, 300)))
       .then(() => Promise.all([
@@ -163,6 +169,7 @@
         shuffleAway(sub, 20),
       ]))
       .then(() => {
+        startMain();
         loader.classList.add('is-done');
         return new Promise(r => setTimeout(r, 450));
       })

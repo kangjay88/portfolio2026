@@ -24,14 +24,13 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   // Site-wide config available in every template
   res.locals.site = {
-    name: 'Your Name',
+    name: 'Jay Kang',
     title: 'Designer & Developer',
-    email: 'hello@yourname.com',
+    email: 'kang.jay.8@gmail.com',
     location: 'Fullerton, CA',
     year: new Date().getFullYear(),
-    github: 'https://github.com/yourname',
-    linkedin: 'https://linkedin.com/in/yourname',
-    twitter: 'https://twitter.com/yourname',
+    github: 'https://github.com/kangjay88',
+    linkedin: 'https://linkedin.com/in/kangjay88',
   };
   next();
 });
