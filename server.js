@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 // ── Home / Work ──
 app.get('/', (req, res) => {
-  const featured = projects.filter(p => p.featured);
+  const featured = projects.filter(p => p.featured).slice(0, 4);
   res.render('pages/home', {
     pageTitle: 'Home',
     featured,

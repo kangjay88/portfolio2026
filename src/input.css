@@ -43,13 +43,13 @@
 
 @layer components {
   .hero-title {
-    font-family: var(--font-display); font-size: clamp(3.5rem, 12vw, 11rem);
-    font-weight: 800; line-height: 0.9; letter-spacing: -0.03em;
+    font-family: var(--font-display); font-size: clamp(2.5rem, 9vw, 7.5rem);
+    font-weight: 700; line-height: 0.9; letter-spacing: -0.03em;
     text-transform: uppercase; color: var(--color-base-50);
   }
   .hero-title-outline {
-    font-family: var(--font-display); font-size: clamp(3.5rem, 12vw, 11rem);
-    font-weight: 800; line-height: 0.9; letter-spacing: -0.03em;
+    font-family: var(--font-display); font-size: clamp(2.5rem, 9vw, 7.5rem);
+    font-weight: 700; line-height: 0.9; letter-spacing: -0.03em;
     text-transform: uppercase; color: transparent; -webkit-text-stroke: 1.5px var(--color-base-600);
   }
   .subtitle {
@@ -68,9 +68,21 @@
   .nav-bracket:hover::after,
   .nav-bracket.is-active::after  { opacity: 1; transform: translateX(0); color: var(--color-accent); }
 
-  .project-card { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; background: var(--color-base-900); }
+  .project-card {
+    position: relative; overflow: hidden; border-radius: 8px; cursor: pointer;
+    background: var(--color-base-900);
+    transition: transform 0.45s var(--ease-out-expo), filter 0.45s var(--ease-out-expo), opacity 0.45s var(--ease-out-expo);
+    transform-origin: bottom center;
+  }
   .project-card img { transition: transform 0.7s var(--ease-out-expo), filter 0.5s ease; will-change: transform; }
   .project-card:hover img { transform: scale(1.05); filter: brightness(0.85); }
+  /* When any card in the grid is hovered, the others shrink ONLY from the top
+     (bottom edge stays anchored, full width preserved → row stays aligned). */
+  .project-grid:hover .project-card:not(:hover) {
+    filter: blur(5px);
+    transform: scaleY(0.85);
+    opacity: 0.85;
+  }
   .project-card .card-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease; background: linear-gradient(to top, rgba(8,8,10,0.78) 0%, rgba(8,8,10,0.15) 60%, transparent 100%); color: #ffffff; }
   .project-card:hover .card-overlay { opacity: 1; }
   .project-card .card-overlay .card-num { color: rgba(255,255,255,0.7); }

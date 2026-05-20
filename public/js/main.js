@@ -129,6 +129,7 @@
     initHeaderBlur();
     initProjectPageAnimations();
     initMagneticButtons();
+    initProjectHover();
     initShuffle();
   }
 
@@ -267,19 +268,30 @@
   // ────────────────────────────────────────
   // 3. LIVE CLOCK
   // ────────────────────────────────────────
-  function initClock() {
-    const el = document.getElementById('liveClock');
-    if (!el) return;
+  let clockInterval = null;
+  let clockEl = null;
 
-    function tick() {
-      const now = new Date();
-      el.textContent =
-        String(now.getHours()).padStart(2, '0') + ':' +
-        String(now.getMinutes()).padStart(2, '0') + ':' +
-        String(now.getSeconds()).padStart(2, '0');
-    }
-    tick();
-    setInterval(tick, 1000);
+  function clockTick() {
+    if (!clockEl) return;
+    const now = new Date();
+    clockEl.textContent =
+      String(now.getHours()).padStart(2, '0') + ':' +
+      String(now.getMinutes()).padStart(2, '0') + ':' +
+      String(now.getSeconds()).padStart(2, '0');
+  }
+  function initClock() {
+    clockEl = document.getElementById('liveClock');
+    if (!clockEl) return;
+    clockTick();
+    clockInterval = setInterval(clockTick, 1000);
+  }
+  function pauseClock() {
+    if (clockInterval) { clearInterval(clockInterval); clockInterval = null; }
+  }
+  function resumeClock() {
+    if (!clockEl || clockInterval) return;
+    clockTick();
+    clockInterval = setInterval(clockTick, 1000);
   }
 
   // ────────────────────────────────────────
@@ -452,27 +464,6 @@
       });
     }
 
-    // ─ Project cards in carousel — scale up on scroll into view ─
-    gsap.utils.toArray('.project-card').forEach((card, i) => {
-      gsap.fromTo(card,
-        { scale: 0.92, opacity: 0.5 },
-        {
-          scale: 1, opacity: 1,
-          duration: 0.6,
-          ease: 'expo.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'left 90%',
-            end: 'left 50%',
-            scrub: false,
-            toggleActions: 'play none none none',
-            // Use horizontal container as scroller if needed
-            containerAnimation: undefined,
-          },
-        }
-      );
-    });
-
     // ─ Archive rows stagger ─
     const archiveRows = gsap.utils.toArray('[data-archive-row]');
     if (archiveRows.length) {
@@ -617,7 +608,69 @@
   }
 
   // ────────────────────────────────────────
-  // 10. SHUFFLE TEXT EFFECT (Rylan-style)
+  // 10. PROJECT-CARD HOVER → swap hero text to project info
+  // ────────────────────────────────────────
+  function initProjectHover() {
+    const cards = document.querySelectorAll('.project-grid .project-card');
+    if (!cards.length) return;
+
+    const nameA = document.querySelector('[data-hero-name="1"]');
+    const nameB = document.querySelector('[data-hero-name="2"]');
+    const roleA = document.querySelector('[data-hero-role="1"]');
+    const roleB = document.querySelector('[data-hero-role="2"]');
+    const locEl = document.querySelector('[data-hero-location]');
+    const clockTextEl = document.getElementById('liveClock');
+
+    // Capture originals from the rendered DOM (call this before initShuffle modifies textContent)
+    const orig = {
+      nameA: nameA ? nameA.textContent.trim() : '',
+      nameB: nameB ? nameB.textContent.trim() : '',
+      roleA: roleA ? roleA.textContent.trim() : '',
+      roleB: roleB ? roleB.textContent.trim() : '',
+      loc:   locEl ? locEl.textContent.trim() : '',
+    };
+
+    function splitTwo(text) {
+      const parts = (text || '').trim().split(/\s+/);
+      if (parts.length <= 1) return [parts[0] || '', ''];
+      return [parts[0], parts.slice(1).join(' ')];
+    }
+
+    cards.forEach(card => {
+      const title    = card.dataset.projectTitle    || '';
+      const category = card.dataset.projectCategory || '';
+      const year     = card.dataset.projectYear     || '';
+      const [titleA, titleB] = splitTwo(title);
+      const [roleHoverA, roleHoverB] = splitTwo(category);
+
+      card.addEventListener('mouseenter', () => {
+        if (nameA) shuffleTo(nameA, titleA, 30);
+        if (nameB) shuffleTo(nameB, titleB, 30);
+        if (roleA) shuffleTo(roleA, roleHoverA, 25);
+        if (roleB) shuffleTo(roleB, roleHoverB, 25);
+        if (locEl) shuffleTo(locEl, year, 25);
+        if (clockTextEl) {
+          pauseClock();
+          shuffleTo(clockTextEl, year, 25);
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (nameA) shuffleTo(nameA, orig.nameA, 30);
+        if (nameB) shuffleTo(nameB, orig.nameB, 30);
+        if (roleA) shuffleTo(roleA, orig.roleA, 25);
+        if (roleB) shuffleTo(roleB, orig.roleB, 25);
+        if (locEl) shuffleTo(locEl, orig.loc, 25);
+        if (clockTextEl) {
+          // Let the scramble back to a momentary value finish, then resume ticking
+          shuffleTo(clockTextEl, '00:00:00', 25).then(resumeClock);
+        }
+      });
+    });
+  }
+
+  // ────────────────────────────────────────
+  // 11. SHUFFLE TEXT EFFECT (Rylan-style)
   // ────────────────────────────────────────
   function initShuffle() {
     document.querySelectorAll('[data-shuffle-load="single"]').forEach(el => {
