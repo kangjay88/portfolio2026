@@ -1,0 +1,29 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/nav-overlay') %>
+
+<main class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+  <span class="font-mono text-xs tracking-widest uppercase block mb-4 animate-fade-in">
+    <span class="text-bracket">[</span>
+    <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>404</span>
+    <span class="text-bracket">]</span>
+  </span>
+  <h1 class="font-display text-6xl md:text-8xl font-bold text-base-50 tracking-tight animate-slide-up delay-100">
+    Lost?
+  </h1>
+  <p class="font-body text-base-300 text-lg mt-6 mb-10 max-w-md animate-fade-in delay-300">
+    This page doesn't exist. Maybe it did once. Maybe it never will. Either way, let's get you back.
+  </p>
+  <a href="/" data-shuffle="button"
+     class="inline-flex items-center gap-2 px-6 py-3 border border-base-700 rounded-full text-sm font-mono uppercase tracking-widest text-base-200 hover:border-base-50 hover:text-base-50 transition-all duration-400 group animate-scale-in delay-500">
+    <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+    </svg>
+    <span class="text-bracket">[</span>
+    <span data-shuffle="text">Back to work</span>
+    <span class="text-bracket">]</span>
+  </a>
+</main>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/end') %>

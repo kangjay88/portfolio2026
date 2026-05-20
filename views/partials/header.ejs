@@ -1,0 +1,34 @@
+<!-- ═══ HEADER / TOP BAR ═══ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between animate-slide-down">
+  <!-- Logo / Name -->
+  <a href="/" class="font-display text-base-50 text-sm font-semibold tracking-widest uppercase hover:text-accent transition-colors duration-300"
+     data-shuffle-load="single" data-shuffle-lock>
+    <%= site.name %>
+  </a>
+
+  <!-- Desktop nav — bracketed style -->
+  <nav class="hidden md:flex items-center gap-8">
+    <a href="/" data-shuffle-load="single"
+       class="nav-bracket font-mono text-xs tracking-widest uppercase transition-colors duration-300
+              <%= currentPath === '/' ? 'text-base-50 is-active' : 'text-base-300 hover:text-base-50' %>">
+      Work
+    </a>
+    <a href="/info" data-shuffle-load="single"
+       class="nav-bracket font-mono text-xs tracking-widest uppercase transition-colors duration-300
+              <%= currentPath === '/info' ? 'text-base-50 is-active' : 'text-base-300 hover:text-base-50' %>">
+      Info
+    </a>
+    <a href="/archive" data-shuffle-load="single"
+       class="nav-bracket font-mono text-xs tracking-widest uppercase transition-colors duration-300
+              <%= currentPath === '/archive' ? 'text-base-50 is-active' : 'text-base-300 hover:text-base-50' %>">
+      Archive
+    </a>
+  </nav>
+
+  <!-- Hamburger -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "slug": "project-one",
+    "title": "Project One",
+    "category": "Web Design",
+    "year": "2026",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80",
+    "description": "A complete brand identity and web experience for a forward-thinking startup. The goal was to create a visual language that feels both approachable and cutting-edge.",
+    "role": "Design & Development",
+    "tech": ["Figma", "HTML/CSS", "JavaScript", "GSAP"],
+    "link": "https://example.com",
+    "details": [
+      "Led the full design process from research and wireframes through high-fidelity prototypes.",
+      "Built a custom component library for consistency across 12+ pages.",
+      "Implemented scroll-driven animations that respond to user interaction.",
+      "Achieved a 95+ Lighthouse performance score on launch."
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "project-two",
+    "title": "Project Two",
+    "category": "Branding",
+    "year": "2025",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1600&q=80",
+    "description": "A branding project exploring the intersection of minimalism and bold expression. Every element was designed to communicate clarity and confidence.",
+    "role": "Brand Identity",
+    "tech": ["Figma", "Illustrator", "After Effects"],
+    "link": null,
+    "details": [
+      "Developed a comprehensive brand system including logo, typography, color palette, and iconography.",
+      "Created motion guidelines for animated brand assets across social and web.",
+      "Produced a 40-page brand book as the definitive reference document.",
+      "The identity was adopted across digital, print, and environmental touchpoints."
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "project-three",
+    "title": "Project Three",
+    "category": "Development",
+    "year": "2025",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1600&q=80",
+    "description": "A full-stack web application built for real-time data visualization. The challenge was making complex datasets feel intuitive and beautiful.",
+    "role": "Full-Stack Development",
+    "tech": ["Node.js", "React", "D3.js", "PostgreSQL"],
+    "link": "https://example.com",
+    "details": [
+      "Architected a REST API serving real-time data to a React frontend.",
+      "Built custom D3.js visualizations for 6 distinct data views.",
+      "Implemented WebSocket connections for live-updating dashboards.",
+      "Optimized database queries to handle 10k+ concurrent users."
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "project-four",
+    "title": "Project Four",
+    "category": "UI/UX Design",
+    "year": "2024",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600&q=80",
+    "description": "Redesigning a mobile experience to reduce friction and increase engagement. Every screen was rethought from the ground up.",
+    "role": "Product Design",
+    "tech": ["Figma", "Protopie", "Swift UI"],
+    "link": null,
+    "details": [
+      "Conducted user research with 20+ interviews to identify pain points.",
+      "Redesigned the core user flow, reducing steps to checkout by 40%.",
+      "Built interactive prototypes for usability testing across 3 iterations.",
+      "The redesign increased conversion rate by 28% in the first quarter."
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "project-five",
+    "title": "Project Five",
+    "category": "Motion / 3D",
+    "year": "2024",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1600&q=80",
+    "description": "An experimental project blending 3D graphics with web technologies. Exploring what's possible when creative coding meets interaction design.",
+    "role": "Creative Development",
+    "tech": ["Three.js", "GLSL Shaders", "Blender", "GSAP"],
+    "link": "https://example.com",
+    "details": [
+      "Created custom GLSL shaders for real-time visual effects in the browser.",
+      "Modeled and optimized 3D assets in Blender for web-friendly file sizes.",
+      "Built a physics-based particle system responding to mouse movement.",
+      "The project was featured on Awwwards as Site of the Day."
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "side-project",
+    "title": "Side Project",
+    "category": "Experiment",
+    "year": "2024",
+    "featured": false,
+    "thumbnail": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1600&q=80",
+    "description": "A weekend experiment turned into something worth sharing. Built purely for the joy of making.",
+    "role": "Everything",
+    "tech": ["HTML", "CSS", "Vanilla JS"],
+    "link": null,
+    "details": [
+      "Started as a CodePen experiment and evolved into a standalone project.",
+      "Focused on pure CSS techniques — no JavaScript for the core animations.",
+      "Explored creative use of CSS custom properties for dynamic theming.",
+      "Open-sourced on GitHub with 200+ stars in the first week."
+    ]
+  }
+]

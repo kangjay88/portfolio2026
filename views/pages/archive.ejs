@@ -1,0 +1,46 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/nav-overlay') %>
+
+<main class="pt-32 pb-20 px-6 md:px-12 lg:px-20">
+
+  <span class="font-mono text-xs tracking-widest uppercase block mb-4" data-scroll="fade-up">
+    <span class="text-bracket">[</span>
+    <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Archive</span>
+    <span class="text-bracket">]</span>
+  </span>
+  <h1 class="font-display text-4xl md:text-6xl font-bold text-base-50 tracking-tight leading-tight" data-scroll="fade-up">
+    All Projects
+  </h1>
+
+  <div class="h-px bg-base-800 my-10" data-scroll="line"></div>
+
+  <div>
+    <div class="hidden md:grid grid-cols-12 gap-4 pb-4 border-b border-base-800 mb-2" data-scroll="fade-up">
+      <span class="col-span-1 font-mono text-xs text-base-400 uppercase tracking-wider">#</span>
+      <span class="col-span-4 font-mono text-xs text-base-400 uppercase tracking-wider">Project</span>
+      <span class="col-span-3 font-mono text-xs text-base-400 uppercase tracking-wider">Category</span>
+      <span class="col-span-2 font-mono text-xs text-base-400 uppercase tracking-wider">Year</span>
+      <span class="col-span-2 font-mono text-xs text-base-400 uppercase tracking-wider text-right">Link</span>
+    </div>
+
+    <% projects.forEach((project, i) => { %>
+      <a href="/projects/<%= project.slug %>" data-archive-row
+         class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-5 border-b border-base-800 group hover:bg-base-900 transition-colors duration-300 px-1 -mx-1 rounded">
+        <span class="col-span-1 font-mono text-xs text-base-400"><%= String(i + 1).padStart(2, '0') %></span>
+        <span class="col-span-4 font-display text-base-100 group-hover:text-accent transition-colors duration-300"><%= project.title %></span>
+        <span class="col-span-3 font-body text-sm text-base-400"><%= project.category %></span>
+        <span class="col-span-2 font-mono text-sm text-base-400"><%= project.year %></span>
+        <span class="col-span-2 font-mono text-xs text-base-400 text-right group-hover:text-accent transition-colors duration-300 flex items-center justify-end gap-1">
+          View
+          <svg class="w-3 h-3 transform transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </a>
+    <% }) %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/end') %>

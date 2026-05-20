@@ -1,0 +1,88 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/nav-overlay') %>
+
+<main class="pt-32 pb-20 px-6 md:px-12 lg:px-20">
+  <div class="max-w-3xl">
+
+    <span class="font-mono text-xs tracking-widest uppercase block mb-4" data-scroll="fade-up">
+      <span class="text-bracket">[</span>
+      <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>About</span>
+      <span class="text-bracket">]</span>
+    </span>
+    <h1 class="font-display text-4xl md:text-6xl font-bold text-base-50 tracking-tight leading-tight" data-scroll="fade-up">
+      A bit about me
+    </h1>
+
+    <div class="h-px bg-base-800 my-10" data-scroll="line"></div>
+
+    <div class="space-y-6 text-base-300 font-body text-base md:text-lg leading-relaxed" data-scroll="stagger">
+      <p data-scroll-child>
+        I'm a designer and developer based in <span class="text-base-50 font-medium"><%= site.location %></span>.
+        I build thoughtful digital experiences — from concept through code — with a focus on
+        clean design, smooth interactions, and purposeful functionality.
+      </p>
+      <p data-scroll-child>
+        My work sits at the intersection of visual design and front-end engineering.
+        I care about typography, motion, and the small details that make interfaces
+        feel polished and intentional.
+      </p>
+      <p data-scroll-child>
+        When I'm not pushing pixels or writing code, you'll find me exploring new music,
+        reading about design systems, or working on side projects that nobody asked for.
+      </p>
+    </div>
+
+    <div class="mt-16" data-scroll="fade-up">
+      <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
+        <span class="text-bracket">[</span>
+        <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Tools &amp; Technologies</span>
+        <span class="text-bracket">]</span>
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4" data-scroll="stagger">
+        <% const skills = [
+          { label: 'Frontend', items: 'HTML, CSS, JavaScript' },
+          { label: 'Frameworks', items: 'Tailwind, React, Node.js' },
+          { label: 'Design', items: 'Figma, After Effects' },
+          { label: 'Backend', items: 'Express, PostgreSQL' },
+          { label: 'Tools', items: 'Git, VS Code, Vercel' },
+          { label: 'Other', items: 'GSAP, Three.js' },
+        ]; %>
+        <% skills.forEach(skill => { %>
+          <div data-scroll-child class="px-4 py-3 border border-base-800 rounded-lg bg-base-900">
+            <span class="font-mono text-xs text-base-400 block mb-1"><%= skill.label %></span>
+            <span class="font-body text-sm text-base-100"><%= skill.items %></span>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="mt-16" data-scroll="fade-up">
+      <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
+        <span class="text-bracket">[</span>
+        <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Let's Connect</span>
+        <span class="text-bracket">]</span>
+      </h2>
+      <div class="flex flex-wrap gap-4" data-scroll="stagger">
+        <% const links = [
+          { label: 'Email', href: 'mailto:' + site.email },
+          { label: 'GitHub', href: site.github },
+          { label: 'LinkedIn', href: site.linkedin },
+          { label: 'Twitter / X', href: site.twitter },
+        ]; %>
+        <% links.forEach(link => { %>
+          <a data-scroll-child data-magnetic href="<%= link.href %>" data-shuffle="button"
+             class="inline-flex items-center gap-1 px-5 py-2.5 border border-base-700 rounded-full text-sm font-mono uppercase tracking-widest text-base-200 hover:border-base-50 hover:text-base-50 transition-all duration-300">
+            <span class="text-bracket">[</span>
+            <span data-shuffle="text"><%= link.label %></span>
+            <span class="text-bracket">]</span>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/end') %>

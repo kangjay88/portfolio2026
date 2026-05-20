@@ -1,103 +1,119 @@
-# Portfolio Site — Phase 1 & 2
+# Portfolio Site — Phase 3: Node.js + Express + EJS
 
-A modern, dark-themed developer portfolio built with **HTML**, **Tailwind CSS v4**, and **vanilla JavaScript**. Inspired by [rylanphillips.com](https://www.rylanphillips.com/).
+A modern, dark-themed developer portfolio with server-side rendering.
 
-## What's Included
+## Architecture
 
 ```
 portfolio-site/
-├── public/                  ← Open index.html to view the site
-│   ├── css/
-│   │   └── output.css       ← Compiled Tailwind (ready to use)
-│   ├── js/
-│   │   └── main.js          ← Nav toggle, live clock, carousel, scroll effects
-│   ├── images/projects/     ← Drop your project thumbnails here
-│   ├── index.html           ← Homepage: hero + project carousel
-│   ├── info.html            ← About/bio page
-│   └── archive.html         ← Project archive (table layout)
+├── server.js                 ← Express server with all routes
+├── data/
+│   └── projects.json         ← Project data (edit this to add your work)
+├── views/
+│   ├── partials/
+│   │   ├── head.ejs          ← Shared <head>, fonts, meta tags
+│   │   ├── header.ejs        ← Top bar + desktop nav (with active state)
+│   │   ├── nav-overlay.ejs   ← Full-screen mobile nav
+│   │   ├── footer.ejs        ← Site footer
+│   │   ├── project-card.ejs  ← Reusable project card component
+│   │   └── end.ejs           ← Closing script tags
+│   └── pages/
+│       ├── home.ejs          ← Homepage: hero + project carousel
+│       ├── info.ejs          ← About/bio page
+│       ├── archive.ejs       ← All projects table
+│       ├── project.ejs       ← Individual project (dynamic)
+│       └── 404.ejs           ← Not found page
+├── public/
+│   ├── css/output.css        ← Compiled Tailwind
+│   └── js/main.js            ← Client-side interactions
 ├── src/
-│   └── input.css            ← Tailwind source (custom theme, animations, components)
-├── package.json
-└── README.md
+│   └── input.css             ← Tailwind source + theme
+├── .env                      ← PORT, NODE_ENV
+├── .gitignore
+└── package.json
 ```
 
 ## Quick Start
 
-### 1. Install dependencies
 ```bash
-cd portfolio-site
 npm install
+npm run css:build    # Compile Tailwind CSS
+npm run dev          # Start Express with --watch (auto-restart on changes)
 ```
 
-### 2. View the site
-Just open `public/index.html` in your browser. Everything works as static files — no server needed for Phase 1 & 2.
+Then open **http://localhost:3000**
 
-### 3. Edit & rebuild Tailwind (when you change classes)
+For CSS development, run in a second terminal:
 ```bash
-npm run dev
+npm run css:watch    # Recompile Tailwind on class changes
 ```
-This watches for changes and recompiles `output.css` automatically.
 
-### 4. Production build
-```bash
-npm run build
+## Routes
+
+| URL | Template | Description |
+|-----|----------|-------------|
+| `/` | `home.ejs` | Hero + featured projects carousel |
+| `/info` | `info.ejs` | Bio, skills, contact links |
+| `/archive` | `archive.ejs` | All projects in table format |
+| `/projects/:slug` | `project.ejs` | Individual project detail + prev/next nav |
+| `/*` | `404.ejs` | Styled 404 page |
+
+## What's New in Phase 3
+
+### Server-side rendering with EJS
+Every page now uses **shared partials** — change the header once, it updates everywhere. No more duplicating HTML across files.
+
+### Dynamic project routing
+Project data lives in `data/projects.json`. The `/projects/:slug` route looks up the project by slug and renders it with prev/next navigation. Add a new project by adding an entry to the JSON file — no new HTML needed.
+
+### Active nav highlighting
+The header partial receives `currentPath` from Express middleware and highlights the active page automatically.
+
+### Site-wide config
+All personal info (name, email, location, social links) is defined once in `server.js` middleware and available in every template via `site.*`.
+
+### Reusable components
+The project card is a partial (`project-card.ejs`) used in both the homepage carousel and anywhere else you need it.
+
+## Adding a New Project
+
+1. Open `data/projects.json`
+2. Add a new object:
+```json
+{
+  "id": 7,
+  "slug": "my-new-project",
+  "title": "My New Project",
+  "category": "Web Design",
+  "year": "2026",
+  "featured": true,
+  "thumbnail": "/images/projects/my-project-thumb.jpg",
+  "hero": "/images/projects/my-project-hero.jpg",
+  "description": "A brief overview of what this project is about.",
+  "role": "Design & Development",
+  "tech": ["Figma", "React", "Tailwind"],
+  "link": "https://myproject.com",
+  "details": [
+    "First key detail about the project.",
+    "Second key detail.",
+    "Third key detail."
+  ]
+}
 ```
-Minifies the CSS for deployment.
+3. Drop your images in `public/images/projects/`
+4. Restart the server — the project appears on the homepage (if `featured: true`), archive, and at `/projects/my-new-project`
 
-## Key Features Built
+## Customization
 
-| Feature | File | How It Works |
-|---------|------|--------------|
-| **Hero with split text** | `index.html` | Oversized filled + outline text with staggered fade-slide animations |
-| **Full-screen nav overlay** | `input.css` + `main.js` | Circle clip-path expansion from hamburger position |
-| **Hamburger → X animation** | `input.css` | Pure CSS transform on `.active` state |
-| **Horizontal project carousel** | `index.html` | CSS `scroll-snap` with JS slide counter |
-| **Project card hover effects** | `input.css` | Image scale + darken + overlay slide-up CTA |
-| **Live clock** | `main.js` | `setInterval` updating HH:MM:SS every second |
-| **Header blur on scroll** | `main.js` | Backdrop-filter toggled based on scroll position |
-| **Scroll-triggered animations** | `main.js` | IntersectionObserver with `[data-animate]` attribute |
-| **Film grain texture** | `input.css` | SVG noise filter as fixed pseudo-element overlay |
-| **Archive table layout** | `archive.html` | 12-column grid with hover row highlights |
-| **Info/bio page** | `info.html` | Skills grid, bio text, social links |
+Edit these in `server.js` → `res.locals.site`:
+- `name` — your full name (also splits into hero first/last)
+- `title` — your tagline
+- `email` — contact email
+- `location` — displayed in hero section
+- `github`, `linkedin`, `twitter` — social links on info page
 
-## Design System
+## Next Steps
 
-### Typography
-- **Display:** Outfit (800 weight for hero, 700 for headings)
-- **Body:** DM Sans (clean, geometric sans-serif)
-- **Mono:** JetBrains Mono (for numbers, labels, metadata)
-
-### Colors
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `base-950` | `#08080a` | Page background |
-| `base-900` | `#111114` | Card backgrounds |
-| `base-800` | `#1a1a1f` | Borders, dividers |
-| `base-400` | `#7a7a88` | Muted text, metadata |
-| `base-200` | `#c8c8d0` | Body text |
-| `base-50` | `#f5f5f7` | Headings, primary text |
-| `accent` | `#e8decf` | CTA highlights, hover states |
-
-### Animation Timing
-All entrance animations use `cubic-bezier(0.16, 1, 0.3, 1)` (expo ease-out) for that smooth deceleration feel.
-
-## Customization Checklist
-
-- [ ] Replace "Your Name" throughout all 3 HTML files
-- [ ] Update email address in contact links
-- [ ] Replace Unsplash placeholder images with your project thumbnails
-- [ ] Update project titles, categories, and descriptions
-- [ ] Add your real social media links on the info page
-- [ ] Update the location and any bio text
-- [ ] Customize accent color in `src/input.css` → `--color-accent`
-
-## Next Steps (Phase 3+)
-
-Phase 3 converts this into a **Node.js + Express** app with:
-- EJS templating (shared header/footer partials)
-- Dynamic project routing (`/projects/:slug`)
-- Project data from a JSON file
-- Server-side rendering
-
-Phase 4 adds advanced animations (GSAP, smooth scroll).
-Phase 5–6 covers polish and deployment to Vercel or Render.
+- **Phase 4**: Add GSAP animations, smooth scroll (Lenis), page transitions
+- **Phase 5**: Image optimization, accessibility audit, responsive polish
+- **Phase 6**: Deploy to Vercel or Render

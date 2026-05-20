@@ -1,0 +1,130 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/nav-overlay') %>
+
+<main class="pt-28 pb-20" data-project-page>
+
+  <!-- ═══ PROJECT HERO ═══ -->
+  <section class="px-6 md:px-12 lg:px-20 mb-12">
+    <div data-project-breadcrumb class="flex items-center gap-2 mb-8">
+      <a href="/" class="font-mono text-xs text-base-400 hover:text-base-200 transition-colors uppercase tracking-widest">Work</a>
+      <span class="font-mono text-xs text-base-600">/</span>
+      <span class="font-mono text-xs text-base-200 uppercase tracking-widest"><%= project.title %></span>
+    </div>
+
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+      <div>
+        <span data-project-meta class="font-mono text-xs tracking-widest uppercase block mb-3">
+          <span class="text-bracket">[</span>
+          <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock><%= String(project.id).padStart(2, '0') %> — <%= project.category %></span>
+          <span class="text-bracket">]</span>
+        </span>
+        <h1 data-project-title class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-base-50 tracking-tight leading-none">
+          <%= project.title %>
+        </h1>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <span data-project-tag class="px-3 py-1.5 border border-base-700 rounded-full font-mono text-xs text-base-300"><%= project.year %></span>
+        <span data-project-tag class="px-3 py-1.5 border border-base-700 rounded-full font-mono text-xs text-base-300"><%= project.role %></span>
+        <% if (project.link) { %>
+          <a data-project-tag data-magnetic href="<%= project.link %>" target="_blank" rel="noopener noreferrer"
+             class="px-3 py-1.5 border border-base-700 rounded-full font-mono text-xs text-accent hover:bg-accent hover:text-base-950 transition-all duration-300 flex items-center gap-1 uppercase tracking-widest">
+            Live site
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HERO IMAGE (clip reveal) ═══ -->
+  <section class="px-6 md:px-12 lg:px-20 mb-16" data-project-hero>
+    <div class="rounded-lg overflow-hidden aspect-[16/9] bg-base-900">
+      <img src="<%= project.hero %>" alt="<%= project.title %>" class="w-full h-full object-cover" />
+    </div>
+  </section>
+
+  <!-- ═══ PROJECT DETAILS (scroll-triggered) ═══ -->
+  <section class="px-6 md:px-12 lg:px-20 max-w-4xl">
+
+    <div class="mb-16" data-scroll="fade-up">
+      <h2 class="font-mono text-xs tracking-widest uppercase mb-4">
+        <span class="text-bracket">[</span>
+        <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Overview</span>
+        <span class="text-bracket">]</span>
+      </h2>
+      <p class="font-body text-lg md:text-xl text-base-100 leading-relaxed"><%= project.description %></p>
+    </div>
+
+    <div class="h-px bg-base-800 mb-16" data-scroll="line"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div class="md:col-span-2" data-scroll="stagger">
+        <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
+          <span class="text-bracket">[</span>
+          <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Details</span>
+          <span class="text-bracket">]</span>
+        </h2>
+        <ul class="space-y-4">
+          <% project.details.forEach(detail => { %>
+            <li data-scroll-child class="flex gap-3">
+              <span class="font-mono text-xs text-base-600 mt-1.5 shrink-0">—</span>
+              <span class="font-body text-base text-base-300 leading-relaxed"><%= detail %></span>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div data-scroll="fade-up">
+        <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
+          <span class="text-bracket">[</span>
+          <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Stack</span>
+          <span class="text-bracket">]</span>
+        </h2>
+        <div class="flex flex-wrap gap-2" data-scroll="stagger">
+          <% project.tech.forEach(t => { %>
+            <span data-scroll-child class="px-3 py-1.5 bg-base-900 border border-base-800 rounded-full font-mono text-xs text-base-300"><%= t %></span>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-px bg-base-800 mb-12" data-scroll="line"></div>
+
+    <!-- ═══ PREV / NEXT NAV ═══ -->
+    <nav class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6" data-scroll="fade-up">
+      <% if (prevProject) { %>
+        <a href="/projects/<%= prevProject.slug %>" data-magnetic
+           class="group flex items-center gap-3 text-base-400 hover:text-base-50 transition-colors duration-300">
+          <svg class="w-5 h-5 transform transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          </svg>
+          <div>
+            <span class="font-mono text-xs text-base-400 block uppercase tracking-widest">Previous</span>
+            <span class="font-display text-lg font-semibold"><%= prevProject.title %></span>
+          </div>
+        </a>
+      <% } else { %>
+        <div></div>
+      <% } %>
+      <% if (nextProject) { %>
+        <a href="/projects/<%= nextProject.slug %>" data-magnetic
+           class="group flex items-center gap-3 text-base-400 hover:text-base-50 transition-colors duration-300 sm:text-right">
+          <div>
+            <span class="font-mono text-xs text-base-400 block uppercase tracking-widest">Next</span>
+            <span class="font-display text-lg font-semibold"><%= nextProject.title %></span>
+          </div>
+          <svg class="w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      <% } %>
+    </nav>
+
+  </section>
+</main>
+
+<%- include('../partials/footer') %>
+<%- include('../partials/end') %>
