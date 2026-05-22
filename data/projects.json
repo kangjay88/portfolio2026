@@ -8,35 +8,40 @@
     "featured": true,
     "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
     "hero": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80",
-    "description": "ECommerce platform for a LA-Based pottery brand.",
-    "role": "Design & Development",
-    "tech": ["Figma", "HTML/CSS", "JavaScript", "GSAP"],
+    "description": "Full-stack ecommerce platform for a LA-based pottery brand featuring one-of-a-kind handcrafted ceramics with an email-based reservation system.",
+    "role": "Full-Stack Development & Infrastructure",
+    "tech": ["Next.js 15", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Docker", "Terraform", "AWS", "Tailwind CSS"],
     "link": "https://example.com",
     "details": [
-      "Led the full design process from research and wireframes through high-fidelity prototypes.",
-      "Built a custom component library for consistency across 12+ pages.",
-      "Implemented scroll-driven animations that respond to user interaction.",
-      "Achieved a 95+ Lighthouse performance score on launch."
+      "Architected a serverless full-stack application using Next.js 15 App Router deployed to AWS Lambda behind CloudFront.",
+      "Provisioned and managed AWS infrastructure (RDS, S3, Lambda, CloudFront) entirely through Terraform for reproducible Infrastructure as Code.",
+      "Designed a normalized PostgreSQL schema with Drizzle ORM, implementing type-safe queries and version-controlled SQL migrations.",
+      "Built a reservation system tailored to one-of-a-kind pottery — customers reserve pieces via email with their preferred payment method (Stripe, PayPal, Venmo, Zelle) rather than traditional cart checkout.",
+      "Containerized local development with Docker Compose, running Next.js and PostgreSQL in isolated services with health checks and automatic migrations.",
+      "Integrated PostHog for product analytics and behavioral event tracking to inform design decisions.",
+      "Planned roadmap for AI integration including rate-limited LLM API calls and customer-facing agents for product recommendations."
     ]
   },
   {
     "id": 2,
-    "slug": "Stock Market Daily Newsletter",
-    "title": "Stock Market Daily Newsletter",
-    "category": "AWS & Data Visualization",
+    "slug": "stock-market-research-newsletter",
+    "title": "Stock Market Research Newsletter",
+    "category": "AWS & Serverless Data Engineering",
     "year": "2026",
     "featured": true,
     "thumbnail": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80",
     "hero": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1600&q=80",
-    "description": "A branding project exploring the intersection of minimalism and bold expression. Every element was designed to communicate clarity and confidence.",
-    "role": "Brand Identity",
-    "tech": ["Figma", "Illustrator", "After Effects"],
+    "description": "A personal stock research platform that automates equity analysis using AWS serverless infrastructure and LLM-powered document summarization. Ingests prices, news, SEC filings, and federal policy actions, then delivers a curated email newsletter every other day with quarterly narratives, watchlist snapshots, and policy impact analysis.",
+    "role": "Solo Developer — Architecture, Infrastructure, Backend, Prompt Engineering",
+    "tech": ["AWS Lambda", "Amazon Bedrock (Claude)", "DynamoDB", "S3", "EventBridge", "SES", "Athena", "Terraform", "Python", "MJML"],
     "link": null,
     "details": [
-      "Developed a comprehensive brand system including logo, typography, color palette, and iconography.",
-      "Created motion guidelines for animated brand assets across social and web.",
-      "Produced a 40-page brand book as the definitive reference document.",
-      "The identity was adopted across digital, print, and environmental touchpoints."
+      "Designed an event-driven serverless architecture on AWS to ingest, process, and store financial data from yfinance, Financial Modeling Prep, NewsAPI, SEC EDGAR, and the Federal Register API.",
+      "Built LLM-powered summarization pipelines using Amazon Bedrock with Claude Sonnet and Haiku, applying model selection by task complexity to summarize 10-K filings, earnings calls, news articles, and policy actions while keeping monthly Bedrock costs under $10.",
+      "Engineered a 'Policy Watch' layer that monitors executive orders and political news from the Federal Register and surfaces regulatory developments affecting tracked equities — a research angle absent from comparable retail platforms.",
+      "Provisioned the entire stack with Terraform using remote state in S3 with DynamoDB locking, IAM least-privilege roles per Lambda, and SSM Parameter Store for secret management.",
+      "Implemented a stratified newsletter delivered every other day via Amazon SES, combining always-on sections (market overview, watchlist snapshot), event-triggered sections (earnings primers, 10-K digests), and a rotating AI deep-dive on individual tickers.",
+      "Authored version-controlled prompts engineered for factual, unbiased extraction — explicitly avoiding buy/sell recommendations or predictive language — to support long-horizon investment research."
     ]
   },
   {
