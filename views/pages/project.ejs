@@ -44,6 +44,21 @@
         </div>
 
         <div class="mb-10" data-scroll="fade-up">
+          <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
+            <span class="text-bracket">[</span>
+            <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Stack</span>
+            <span class="text-bracket">]</span>
+          </h2>
+          <div class="flex flex-wrap gap-2" data-scroll="stagger">
+            <% project.tech.forEach(t => { %>
+              <span data-scroll-child class="px-3 py-1.5 bg-base-900 border border-base-800 rounded-full font-mono text-xs text-base-300"><%= t %></span>
+            <% }) %>
+          </div>
+        </div>
+
+        <div class="h-px bg-base-800 mb-10" data-scroll="line"></div>
+
+        <div class="mb-10" data-scroll="fade-up">
           <h2 class="font-mono text-xs tracking-widest uppercase mb-4">
             <span class="text-bracket">[</span>
             <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Overview</span>
@@ -54,7 +69,7 @@
 
         <div class="h-px bg-base-800 mb-10" data-scroll="line"></div>
 
-        <div class="mb-10" data-scroll="stagger">
+        <div data-scroll="stagger">
           <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
             <span class="text-bracket">[</span>
             <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Details</span>
@@ -68,21 +83,6 @@
               </li>
             <% }) %>
           </ul>
-        </div>
-
-        <div class="h-px bg-base-800 mb-10" data-scroll="line"></div>
-
-        <div data-scroll="fade-up">
-          <h2 class="font-mono text-xs tracking-widest uppercase mb-6">
-            <span class="text-bracket">[</span>
-            <span class="text-base-400" data-shuffle-load="single" data-shuffle-lock>Stack</span>
-            <span class="text-bracket">]</span>
-          </h2>
-          <div class="flex flex-wrap gap-2" data-scroll="stagger">
-            <% project.tech.forEach(t => { %>
-              <span data-scroll-child class="px-3 py-1.5 bg-base-900 border border-base-800 rounded-full font-mono text-xs text-base-300"><%= t %></span>
-            <% }) %>
-          </div>
         </div>
 
       </aside>
