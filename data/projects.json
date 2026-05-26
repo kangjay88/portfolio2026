@@ -66,10 +66,10 @@
   },
   {
     "id": 4,
-    "slug": "project-four",
-    "title": "Project Four",
+    "slug":"coming soon",
+    "title": "Coming Soon",
     "category": "UI/UX Design",
-    "year": "2024",
+    "year": "2026",
     "featured": true,
     "thumbnail": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
     "hero": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600&q=80",
