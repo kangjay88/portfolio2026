@@ -83,45 +83,5 @@
       "Built interactive prototypes for usability testing across 3 iterations.",
       "The redesign increased conversion rate by 28% in the first quarter."
     ]
-  },
-  {
-    "id": 5,
-    "slug": "project-five",
-    "title": "Project Five",
-    "category": "Motion / 3D",
-    "year": "2024",
-    "featured": true,
-    "thumbnail": "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=1600&q=80",
-    "description": "An experimental project blending 3D graphics with web technologies. Exploring what's possible when creative coding meets interaction design.",
-    "role": "Creative Development",
-    "tech": ["Three.js", "GLSL Shaders", "Blender", "GSAP"],
-    "link": "https://example.com",
-    "details": [
-      "Created custom GLSL shaders for real-time visual effects in the browser.",
-      "Modeled and optimized 3D assets in Blender for web-friendly file sizes.",
-      "Built a physics-based particle system responding to mouse movement.",
-      "The project was featured on Awwwards as Site of the Day."
-    ]
-  },
-  {
-    "id": 6,
-    "slug": "side-project",
-    "title": "Side Project",
-    "category": "Experiment",
-    "year": "2024",
-    "featured": false,
-    "thumbnail": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=1600&q=80",
-    "description": "A weekend experiment turned into something worth sharing. Built purely for the joy of making.",
-    "role": "Everything",
-    "tech": ["HTML", "CSS", "Vanilla JS"],
-    "link": null,
-    "details": [
-      "Started as a CodePen experiment and evolved into a standalone project.",
-      "Focused on pure CSS techniques — no JavaScript for the core animations.",
-      "Explored creative use of CSS custom properties for dynamic theming.",
-      "Open-sourced on GitHub with 200+ stars in the first week."
-    ]
   }
 ]
