@@ -114,6 +114,7 @@ Edit these in `server.js` → `res.locals.site`:
 
 ## Next Steps
 
-- **Phase 4**: Add GSAP animations, smooth scroll (Lenis), page transitions
-- **Phase 5**: Image optimization, accessibility audit, responsive polish
+- **Phase 4**: Add GSAP animations, smooth scroll (Lenis), page transitions *DONE 
+- **Phase 5**: Image optimization, accessibility audit, responsive polish *DONE 
 - **Phase 6**: Deploy to Vercel or Render
+
