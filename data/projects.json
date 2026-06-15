@@ -66,8 +66,8 @@
   },
   {
     "id": 4,
-    "slug":"Try Won",
-    "title": "Coming Soon",
+    "slug":"ResumeWonAI",
+    "title": "AI Resume Builder",
     "category": "UI/UX Design",
     "year": "2026",
     "featured": true,
@@ -78,7 +78,7 @@
     "tech": ["Figma", "Protopie", "Swift UI"],
     "link": null,
     "details": [
-      "30 day journal to break the habit of stopping when failing",
+      "AI Resume Builder to help job seekers create tailored resumes with AI-powered content suggestions and formatting. The redesign focused on simplifying the user flow, improving accessibility, and adding interactive features to enhance engagement.",
       "New challenges daily to keep users to try something new",
       "Built interactive prototypes for usability testing across 3 iterations.",
       "The redesign increased conversion rate by 28% in the first quarter."
