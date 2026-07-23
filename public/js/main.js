@@ -620,6 +620,7 @@
     const roleB = document.querySelector('[data-hero-role="2"]');
     const locEl = document.querySelector('[data-hero-location]');
     const clockTextEl = document.getElementById('liveClock');
+    const connectEl = document.querySelector('[data-hero-connect]');
 
     // Capture originals from the rendered DOM (call this before initShuffle modifies textContent)
     const orig = {
@@ -653,6 +654,13 @@
           pauseClock();
           shuffleTo(clockTextEl, year, 25);
         }
+        // Connect links belong to the default "Jay Kang" state — hide while
+        // the hero is showing project info.
+        if (connectEl) {
+          connectEl.style.pointerEvents = 'none';
+          if (typeof gsap !== 'undefined') gsap.to(connectEl, { opacity: 0, duration: 0.3, ease: 'power2.out' });
+          else connectEl.style.opacity = '0';
+        }
       });
 
       card.addEventListener('mouseleave', () => {
@@ -661,6 +669,11 @@
         if (roleA) shuffleTo(roleA, orig.roleA, 25);
         if (roleB) shuffleTo(roleB, orig.roleB, 25);
         if (locEl) shuffleTo(locEl, orig.loc, 25);
+        if (connectEl) {
+          connectEl.style.pointerEvents = '';
+          if (typeof gsap !== 'undefined') gsap.to(connectEl, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+          else connectEl.style.opacity = '1';
+        }
         if (clockTextEl) {
           // Let the scramble back to a momentary value finish, then resume ticking
           shuffleTo(clockTextEl, '00:00:00', 25).then(resumeClock);

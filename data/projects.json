@@ -2,28 +2,133 @@
   {
     "id": 1,
     "slug": "jung__ie",
-    "title": "jung__ie",
-    "category": "ECommerce",
+    "title": "Jungie Studio",
+    "category": "Full-Stack E-Commerce & Cloud Infrastructure",
     "year": "2026",
     "featured": true,
     "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
     "hero": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80",
-    "description": "Full-stack ecommerce platform for a LA-based pottery brand featuring one-of-a-kind handcrafted ceramics with an email-based reservation system.",
-    "role": "Full-Stack Development & Infrastructure",
-    "tech": ["Next.js 15", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Docker", "Terraform", "AWS", "Tailwind CSS"],
+    "description": "A production-grade, single-vendor e-commerce storefront for an LA-based handmade-pottery brand. Every piece is one of a kind, so instead of a cart-and-checkout flow I built an email-based reservation system that atomically holds a piece for one buyer. Serverless Next.js on AWS Lambda behind CloudFront, self-hosted auth with an admin back-office, and the entire cloud footprint provisioned as code with Terraform.",
+    "role": "Solo Full-Stack Developer — Architecture, Frontend, Backend, Cloud Infrastructure, Auth & Email Deliverability",
+    "tech": ["Next.js 15", "React 19", "TypeScript", "PostgreSQL 16", "Drizzle ORM", "Better Auth", "Zod", "OpenNext", "AWS (Lambda, CloudFront, RDS, S3, SES, SNS, Route 53, ACM, VPC)", "Terraform", "Docker", "Tailwind CSS"],
     "link": "https://example.com",
-    "details": [
-      "Architected a serverless full-stack application using Next.js 15 App Router deployed to AWS Lambda behind CloudFront.",
-      "Provisioned and managed AWS infrastructure (RDS, S3, Lambda, CloudFront) entirely through Terraform for reproducible Infrastructure as Code.",
-      "Designed a normalized PostgreSQL schema with Drizzle ORM, implementing type-safe queries and version-controlled SQL migrations.",
-      "Built a reservation system tailored to one-of-a-kind pottery — customers reserve pieces via email with their preferred payment method (Stripe, PayPal, Venmo, Zelle) rather than traditional cart checkout.",
-      "Containerized local development with Docker Compose, running Next.js and PostgreSQL in isolated services with health checks and automatic migrations.",
-      "Integrated PostHog for product analytics and behavioral event tracking to inform design decisions.",
-      "Planned roadmap for AI integration including rate-limited LLM API calls and customer-facing agents for product recommendations."
+    "highlights": [
+      {
+        "label": "Architecture",
+        "title": "Serverless Next.js on AWS Lambda",
+        "body": "Built on the Next.js 15 App Router — React 19 Server Components and Server Actions, TypeScript end to end — packaged for AWS Lambda with OpenNext and served globally through CloudFront, with Origin Access Control locking the S3 origins."
+      },
+      {
+        "label": "Infrastructure",
+        "title": "The whole cloud footprint as code",
+        "body": "Terraform provisions every AWS resource — RDS Postgres, in-VPC Lambda, S3, CloudFront, Route 53, ACM, SES, and SNS — with least-privilege IAM scoped per resource and application secrets kept out of version control."
+      },
+      {
+        "label": "Data",
+        "title": "Type-safe schema tuned for serverless",
+        "body": "A normalized PostgreSQL 16 schema modeled in Drizzle ORM with type-safe queries and version-controlled migrations, connected via the postgres-js driver tuned for Lambda connection cycling (prepared statements disabled)."
+      },
+      {
+        "label": "Commerce",
+        "title": "Atomic reservations for one-of-a-kind inventory",
+        "body": "Because every piece is unique, an atomic SELECT…FOR UPDATE inside a transaction stops two customers from reserving the same item. Zod validates each submission, and the buyer's payment preference is captured for out-of-band settlement — no cart or processor, by design."
+      },
+      {
+        "label": "Auth & security",
+        "title": "Self-hosted auth with defense in depth",
+        "body": "Better Auth (Drizzle adapter, Google OAuth) backs a role-gated admin back-office, re-checking session and role inside each Server Action and page rather than trusting middleware alone — the CVE-2025-29927 middleware-bypass lesson applied."
+      },
+      {
+        "label": "Deliverability",
+        "title": "Production-grade email on SES",
+        "body": "Owned end-to-end deliverability: DKIM signing, a custom MAIL FROM subdomain publishing SPF, a DMARC policy, and an SNS topic routing bounce/complaint events — holding bounce rate under 5% and complaint rate under 0.1%."
+      },
+      {
+        "label": "Cost engineering",
+        "title": "A NAT trade-off that cut egress 8×",
+        "body": "Routed private-subnet egress through a self-hosted fck-nat instance instead of a managed NAT Gateway, cutting that line item from ~$32/mo to ~$4/mo and holding the full always-on stack to ~$24–28/mo."
+      },
+      {
+        "label": "Developer experience",
+        "title": "Reproducible local environment",
+        "body": "Docker Compose runs Next.js and PostgreSQL as isolated services so the environment is reproducible and migrations run consistently from laptop to cloud."
+      },
+      {
+        "label": "Roadmap",
+        "title": "Scheduled drops and AI assistance",
+        "body": "Planned a scheduled 'drop' storefront — open only during drop windows, with RDS and NAT powered down between drops via EventBridge Scheduler to cut idle cost roughly 4× — plus rate-limited LLM integration for customer-facing product assistance."
+      }
     ]
   },
   {
     "id": 2,
+    "slug": "ResumeWonAI",
+    "title": "WonResume AI",
+    "category": "Full-Stack AI Web App",
+    "year": "2026",
+    "featured": true,
+    "thumbnail": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
+    "hero": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600&q=80",
+    "description": "An AI resume-tailoring web app that turns a pasted job description into an ATS-scored, voice-preserving tailored resume and cover letter. A deterministic scoring engine and Claude-powered review grade each draft, editable per-bullet suggestions keep the candidate's own voice, and every application is versioned with a side-by-side diff — all behind Supabase auth with row-level security.",
+    "role": "Solo Full-Stack Developer — Architecture, Frontend, Backend, AI Integration, Design System",
+    "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "Supabase (Postgres + Auth, RLS)", "Anthropic Claude API", "Zod", "React-PDF", "Vercel"],
+    "link": null,
+    "gallery": [
+      "/images/projects/wonresume/01-ats-score.webp",
+      "/images/projects/wonresume/02.webp",
+      "/images/projects/wonresume/03.webp",
+      "/images/projects/wonresume/04.webp"
+    ],
+    "highlights": [
+      {
+        "label": "Architecture",
+        "title": "Full-stack Next.js on Vercel",
+        "body": "A production app on the Next.js 16 App Router with React 19 Server Components, server actions, and TypeScript end to end, deployed on Vercel."
+      },
+      {
+        "label": "Data & security",
+        "title": "Row-level security by default",
+        "body": "A Supabase Postgres backend with row-level security on every table and cookie-based SSR auth, isolating each user's career data, resumes, and applications at the database layer."
+      },
+      {
+        "label": "Scoring",
+        "title": "A deterministic ATS scoring engine",
+        "body": "Formatting, keyword and JD coverage, impact, and language checks implemented as pure, testable functions that return sub-scores plus concrete fixes — no black-box AI for the parts that must be reproducible."
+      },
+      {
+        "label": "AI integration",
+        "title": "Task-matched Claude models",
+        "body": "The Anthropic Claude API is wired with task-based model selection — Haiku for fast extraction and parsing, Sonnet for tailoring, review, and cover letters — balancing latency against cost under an enforced monthly spend cap."
+      },
+      {
+        "label": "Reliability",
+        "title": "Schema-validated LLM output",
+        "body": "Zod schemas act as a strict validation contract for all model output, with null-tolerant coercion so malformed responses degrade gracefully instead of crashing the request."
+      },
+      {
+        "label": "Tailoring",
+        "title": "Voice-preserving, per-bullet edits",
+        "body": "Claude proposes per-bullet edits the user can accept, edit, or reject, capturing each decision to learn the candidate's writing voice while the score updates live."
+      },
+      {
+        "label": "Output",
+        "title": "Pixel-consistent client-side PDFs",
+        "body": "Resumes and cover letters render entirely client-side from a single shared react-pdf template, eliminating rendering drift between the live preview and the downloaded file."
+      },
+      {
+        "label": "Workflow",
+        "title": "A versioned application pipeline",
+        "body": "A drag-and-drop kanban board built on native HTML5 drag-and-drop with zero dependencies, optimistic updates that revert on failure, and an LCS-based diff to compare any two saved resume versions."
+      },
+      {
+        "label": "Design system",
+        "title": "A cohesive, accessible surface",
+        "body": "A reusable Tailwind v4 design system — CSS-first tokens, accessible UI primitives, and staggered entrance animations that respect prefers-reduced-motion — spanning the app and a public marketing landing page."
+      }
+    ]
+  },
+  {
+    "id": 3,
     "slug": "stock ₩on",
     "title": "stock ₩on",
     "category": "AWS & Serverless Data Engineering",
@@ -35,17 +140,41 @@
     "role": "Solo Developer — Architecture, Infrastructure, Backend, Prompt Engineering",
     "tech": ["AWS Lambda", "Amazon Bedrock (Claude)", "DynamoDB", "S3", "EventBridge", "SES", "Athena", "Terraform", "Python", "MJML"],
     "link": null,
-    "details": [
-      "Designed an event-driven serverless architecture on AWS to ingest, process, and store financial data from yfinance, Financial Modeling Prep, NewsAPI, SEC EDGAR, and the Federal Register API.",
-      "Built LLM-powered summarization pipelines using Amazon Bedrock with Claude Sonnet and Haiku, applying model selection by task complexity to summarize 10-K filings, earnings calls, news articles, and policy actions while keeping monthly Bedrock costs under $10.",
-      "Engineered a 'Policy Watch' layer that monitors executive orders and political news from the Federal Register and surfaces regulatory developments affecting tracked equities — a research angle absent from comparable retail platforms.",
-      "Provisioned the entire stack with Terraform using remote state in S3 with DynamoDB locking, IAM least-privilege roles per Lambda, and SSM Parameter Store for secret management.",
-      "Implemented a stratified newsletter delivered every other day via Amazon SES, combining always-on sections (market overview, watchlist snapshot), event-triggered sections (earnings primers, 10-K digests), and a rotating AI deep-dive on individual tickers.",
-      "Authored version-controlled prompts engineered for factual, unbiased extraction — explicitly avoiding buy/sell recommendations or predictive language — to support long-horizon investment research."
+    "highlights": [
+      {
+        "label": "Data pipeline",
+        "title": "Five sources, one event-driven pipeline",
+        "body": "An event-driven serverless architecture ingests, processes, and stores financial data from yfinance, Financial Modeling Prep, NewsAPI, SEC EDGAR, and the Federal Register API."
+      },
+      {
+        "label": "Intelligence",
+        "title": "Model-matched LLM summarization",
+        "body": "Amazon Bedrock summarizes 10-K filings, earnings calls, news, and policy actions — routing between Claude Sonnet and Haiku by task complexity to keep monthly Bedrock cost under $10."
+      },
+      {
+        "label": "Differentiator",
+        "title": "Policy Watch for regulatory signals",
+        "body": "A dedicated layer monitors executive orders and political news from the Federal Register, surfacing regulatory developments affecting tracked equities — a research angle absent from comparable retail platforms."
+      },
+      {
+        "label": "Infrastructure",
+        "title": "Least-privilege, fully Terraformed",
+        "body": "The entire stack is provisioned with Terraform using remote state in S3 with DynamoDB locking, per-Lambda IAM roles, and SSM Parameter Store for secret management."
+      },
+      {
+        "label": "Delivery",
+        "title": "A stratified newsletter, every other day",
+        "body": "Amazon SES delivers a layered digest: always-on sections like the market overview and watchlist snapshot, event-triggered earnings and 10-K primers, and a rotating AI deep-dive on individual tickers."
+      },
+      {
+        "label": "Prompt engineering",
+        "title": "Factual by design",
+        "body": "Version-controlled prompts are engineered for factual, unbiased extraction — explicitly avoiding buy/sell recommendations or predictive language — to support long-horizon investment research."
+      }
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "slug": "World Relief",
     "title": "World Relief",
     "category": "Full Stack Engineering",
@@ -57,31 +186,27 @@
     "role": "Full-Stack Development",
     "tech": ["Node.js", "React", "D3.js", "PostgreSQL"],
     "link": "https://example.com",
-    "details": [
-      "Architected a REST API serving real-time data to a React frontend.",
-      "Built custom D3.js visualizations for 6 distinct data views.",
-      "Implemented WebSocket connections for live-updating dashboards.",
-      "Optimized database queries to handle 10k+ concurrent users."
-    ]
-  },
-  {
-    "id": 4,
-    "slug":"ResumeWonAI",
-    "title": "AI Resume Builder",
-    "category": "UI/UX Design",
-    "year": "2026",
-    "featured": true,
-    "thumbnail": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1600&q=80",
-    "description": "Redesigning a mobile experience to reduce friction and increase engagement. Every screen was rethought from the ground up.",
-    "role": "Product Design",
-    "tech": ["Figma", "Protopie", "Swift UI"],
-    "link": null,
-    "details": [
-      "AI Resume Builder to help job seekers create tailored resumes with AI-powered content suggestions and formatting. The redesign focused on simplifying the user flow, improving accessibility, and adding interactive features to enhance engagement.",
-      "New challenges daily to keep users to try something new",
-      "Built interactive prototypes for usability testing across 3 iterations.",
-      "The redesign increased conversion rate by 28% in the first quarter."
+    "highlights": [
+      {
+        "label": "Backend",
+        "title": "Real-time REST API",
+        "body": "A REST API architected to stream live data to a React frontend, keeping the interface in sync with the underlying datasets as they change."
+      },
+      {
+        "label": "Visualization",
+        "title": "Six bespoke D3 data views",
+        "body": "Custom D3.js visualizations across six distinct views, translating complex datasets into intuitive, legible graphics."
+      },
+      {
+        "label": "Live data",
+        "title": "WebSocket-driven dashboards",
+        "body": "WebSocket connections push updates to dashboards in real time, so users see changes the moment they happen rather than on refresh."
+      },
+      {
+        "label": "Performance",
+        "title": "Tuned for 10k+ concurrent users",
+        "body": "Database queries were optimized to sustain more than 10,000 concurrent users without degrading responsiveness."
+      }
     ]
   }
 ]
