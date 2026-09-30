@@ -1,14 +1,17 @@
-<!-- ═══ FULL-SCREEN NAV OVERLAY ═══ -->
-<div class="nav-overlay" id="navOverlay">
-  <nav class="flex flex-col items-center gap-4">
-    <a href="/">[ Work ]</a>
-    <a href="/info">[ Info ]</a>
-    <a href="/archive">[ Archive ]</a>
-    <a href="#" id="navClose" class="!text-base-400 hover:!text-accent">[ Close ]</a>
+<!-- ═══ MOBILE NAV DRAWER (< 768px) ═══ -->
+<div class="nav-backdrop" id="navBackdrop"></div>
+<aside class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <button class="nav-close" id="navClose" aria-label="Close menu">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  </button>
+  <nav>
+    <a href="/">Work</a>
+    <a href="/info">Info</a>
+    <a href="/archive">Archive</a>
   </nav>
-  <div class="mt-12 text-base-400 text-sm font-body tracking-wide">
-    <a href="mailto:<%= site.email %>" class="hover:text-accent transition-colors duration-300">
-      <%= site.email %>
-    </a>
+  <div class="nav-drawer-footer">
+    <a href="mailto:<%= site.email %>"><%= site.email %></a>
   </div>
-</div>
+</aside>

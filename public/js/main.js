@@ -211,24 +211,18 @@
     const navOverlay = document.getElementById('navOverlay');
     if (!hamburger || !navOverlay) return;
 
+    const navBackdrop = document.getElementById('navBackdrop');
+    const navClose = document.getElementById('navClose');
     const navLinks = navOverlay.querySelectorAll('a');
 
     hamburger.addEventListener('click', () => {
-      const isOpen = navOverlay.classList.contains('active');
-
-      if (isOpen) {
-        closeNav();
-      } else {
-        openNav();
-      }
+      navOverlay.classList.contains('active') ? closeNav() : openNav();
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.id === 'navClose') e.preventDefault();
-        closeNav();
-      });
-    });
+    if (navClose) navClose.addEventListener('click', closeNav);
+    if (navBackdrop) navBackdrop.addEventListener('click', closeNav);
+
+    navLinks.forEach(link => link.addEventListener('click', closeNav));
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
@@ -238,20 +232,23 @@
 
     function openNav() {
       hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
       navOverlay.classList.add('active');
+      navOverlay.setAttribute('aria-hidden', 'false');
+      if (navBackdrop) navBackdrop.classList.add('active');
       document.body.style.overflow = 'hidden';
       if (lenis) lenis.stop();
 
-      // Stagger nav links entrance
+      // Stagger nav links entrance (slide in from the right)
       if (typeof gsap !== 'undefined') {
         gsap.fromTo(navLinks,
-          { y: 40, opacity: 0 },
+          { x: 24, opacity: 0 },
           {
-            y: 0, opacity: 1,
-            duration: 0.6,
-            stagger: 0.08,
+            x: 0, opacity: 1,
+            duration: 0.5,
+            stagger: 0.07,
             ease: 'expo.out',
-            delay: 0.3,
+            delay: 0.15,
           }
         );
       }
@@ -259,7 +256,10 @@
 
     function closeNav() {
       hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
       navOverlay.classList.remove('active');
+      navOverlay.setAttribute('aria-hidden', 'true');
+      if (navBackdrop) navBackdrop.classList.remove('active');
       document.body.style.overflow = '';
       if (lenis) lenis.start();
     }

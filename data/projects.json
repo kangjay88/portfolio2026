@@ -6,12 +6,17 @@
     "category": "Full-Stack E-Commerce & Cloud Infrastructure",
     "year": "2026",
     "featured": true,
-    "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600&q=80",
+    "thumbnail": "/images/projects/jungie/coming-soon.png",
+    "hero": "/images/projects/jungie/shop.png",
+    "gallery": [
+      "/images/projects/jungie/product-page.png",
+      "/images/projects/jungie/admin-dashboard.png",
+      "/images/projects/jungie/thumbnail.jpg"
+    ],
     "description": "A production-grade, single-vendor e-commerce storefront for an LA-based handmade-pottery brand. Every piece is one of a kind, so instead of a cart-and-checkout flow I built an email-based reservation system that atomically holds a piece for one buyer. Serverless Next.js on AWS Lambda behind CloudFront, self-hosted auth with an admin back-office, and the entire cloud footprint provisioned as code with Terraform.",
     "role": "Solo Full-Stack Developer — Architecture, Frontend, Backend, Cloud Infrastructure, Auth & Email Deliverability",
     "tech": ["Next.js 15", "React 19", "TypeScript", "PostgreSQL 16", "Drizzle ORM", "Better Auth", "Zod", "OpenNext", "AWS (Lambda, CloudFront, RDS, S3, SES, SNS, Route 53, ACM, VPC)", "Terraform", "Docker", "Tailwind CSS"],
-    "link": "https://example.com",
+    "link": "https://jungiestudio.com",
     "highlights": [
       {
         "label": "Architecture",
@@ -41,7 +46,7 @@
       {
         "label": "Deliverability",
         "title": "Production-grade email on SES",
-        "body": "Owned end-to-end deliverability: DKIM signing, a custom MAIL FROM subdomain publishing SPF, a DMARC policy, and an SNS topic routing bounce/complaint events — holding bounce rate under 5% and complaint rate under 0.1%."
+        "body": "Owned end-to-end deliverability: DKIM signing, a custom MAIL FROM subdomain publishing SPF, a DMARC policy, and an SNS topic routing bounce/complaint events to keep rates within SES thresholds."
       },
       {
         "label": "Cost engineering",
@@ -72,7 +77,7 @@
     "description": "An AI resume-tailoring web app that turns a pasted job description into an ATS-scored, voice-preserving tailored resume and cover letter. A deterministic scoring engine and Claude-powered review grade each draft, editable per-bullet suggestions keep the candidate's own voice, and every application is versioned with a side-by-side diff — all behind Supabase auth with row-level security.",
     "role": "Solo Full-Stack Developer — Architecture, Frontend, Backend, AI Integration, Design System",
     "tech": ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "Supabase (Postgres + Auth, RLS)", "Anthropic Claude API", "Zod", "React-PDF", "Vercel"],
-    "link": null,
+    "link": "https://wonresumeai.vercel.app/",
     "gallery": [
       "/images/projects/wonresume/01-ats-score.webp",
       "/images/projects/wonresume/02.webp",
@@ -129,22 +134,46 @@
   },
   {
     "id": 3,
-    "slug": "stock ₩on",
-    "title": "stock ₩on",
-    "category": "AWS & Serverless Data Engineering",
+    "slug": "₩on Stock",
+    "title": "₩on Stock",
+    "category": "Serverless Data Platform & Full-Stack Dashboard",
     "year": "2026",
     "featured": true,
-    "thumbnail": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1600&q=80",
-    "description": "A personal stock research platform that automates equity analysis using AWS serverless infrastructure and LLM-powered document summarization. Ingests prices, news, SEC filings, and federal policy actions, then delivers a curated email newsletter every other day with quarterly narratives, watchlist snapshots, and policy impact analysis.",
-    "role": "Solo Developer — Architecture, Infrastructure, Backend, Prompt Engineering",
-    "tech": ["AWS Lambda", "Amazon Bedrock (Claude)", "DynamoDB", "S3", "EventBridge", "SES", "Athena", "Terraform", "Python", "MJML"],
-    "link": null,
+    "thumbnail": "/images/projects/wonstock/thumbnail.png",
+    "hero": "/images/projects/wonstock/dashboard.png",
+    "gallery": [
+      "/images/projects/wonstock/filing-briefs.png",
+      "/images/projects/wonstock/deep-dive.png",
+      {
+        "type": "video",
+        "src": "/images/projects/wonstock/loop-recording.mp4",
+        "caption": "Ongoing loop recording"
+      }
+    ],
+    "description": "A personal stock research platform that automates equity analysis with AWS serverless infrastructure and LLM-powered document summarization. An event-driven pipeline ingests prices, news, SEC filings, and federal policy actions, then delivers a curated email newsletter every other day with quarterly narratives, watchlist snapshots, and policy impact analysis. On top of the same pipeline, a private Next.js dashboard on Vercel — backed by a cost-aware DynamoDB cache, Supabase auth, and a signed cross-cloud call into the AWS backend — adds live watchlist management, interactive price-history charts, and per-ticker deep dives.",
+    "role": "Solo Developer — Architecture, Cloud Infrastructure, Backend, Full-Stack Dashboard, Prompt Engineering",
+    "tech": ["AWS (Lambda, DynamoDB, S3, EventBridge, SES, Athena)", "Amazon Bedrock (Claude)", "Terraform", "Python", "Next.js 14", "React", "TypeScript", "Supabase (Postgres + Auth, RLS)", "Recharts", "Vercel", "MJML"],
+    "link": "https://wonstockai.vercel.app/",
     "highlights": [
       {
         "label": "Data pipeline",
         "title": "Five sources, one event-driven pipeline",
         "body": "An event-driven serverless architecture ingests, processes, and stores financial data from yfinance, Financial Modeling Prep, NewsAPI, SEC EDGAR, and the Federal Register API."
+      },
+      {
+        "label": "System design",
+        "title": "A read-through cache that decouples traffic from API limits",
+        "body": "A DynamoDB read-through cache, refreshed once daily by an EventBridge cron, serves every price-history chart and watchlist sparkline — so dashboard page views cost zero upstream calls and third-party API usage stays flat against a 250-request/day free-tier ceiling no matter how heavily the app is browsed."
+      },
+      {
+        "label": "Full-stack",
+        "title": "A private dashboard spanning three clouds",
+        "body": "A Next.js 14 App Router dashboard on Vercel — React Server Components and server actions, TypeScript end to end — securely invokes the AWS Lambda backend through the AWS SDK with scoped IAM credentials, while a Supabase Postgres read model with row-level security and Google OAuth backs the authenticated watchlist and holdings views."
+      },
+      {
+        "label": "Frontend",
+        "title": "Server-rendered charts, tuned for cost and speed",
+        "body": "Watchlist rows render sparklines as server-generated inline SVG — no per-row charting library or client JavaScript — while detail pages ship interactive Recharts price-history charts with range selection and an end-of-day 'as of' timestamp, spending client-side JS only where interaction earns it."
       },
       {
         "label": "Intelligence",
@@ -170,42 +199,6 @@
         "label": "Prompt engineering",
         "title": "Factual by design",
         "body": "Version-controlled prompts are engineered for factual, unbiased extraction — explicitly avoiding buy/sell recommendations or predictive language — to support long-horizon investment research."
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "slug": "World Relief",
-    "title": "World Relief",
-    "category": "Full Stack Engineering",
-    "year": "2023-2026",
-    "featured": true,
-    "thumbnail": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&q=80",
-    "hero": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1600&q=80",
-    "description": "A full-stack web application built for real-time data visualization. The challenge was making complex datasets feel intuitive and beautiful.",
-    "role": "Full-Stack Development",
-    "tech": ["Node.js", "React", "D3.js", "PostgreSQL"],
-    "link": "https://example.com",
-    "highlights": [
-      {
-        "label": "Backend",
-        "title": "Real-time REST API",
-        "body": "A REST API architected to stream live data to a React frontend, keeping the interface in sync with the underlying datasets as they change."
-      },
-      {
-        "label": "Visualization",
-        "title": "Six bespoke D3 data views",
-        "body": "Custom D3.js visualizations across six distinct views, translating complex datasets into intuitive, legible graphics."
-      },
-      {
-        "label": "Live data",
-        "title": "WebSocket-driven dashboards",
-        "body": "WebSocket connections push updates to dashboards in real time, so users see changes the moment they happen rather than on refresh."
-      },
-      {
-        "label": "Performance",
-        "title": "Tuned for 10k+ concurrent users",
-        "body": "Database queries were optimized to sustain more than 10,000 concurrent users without degrading responsiveness."
       }
     ]
   }
