@@ -93,7 +93,11 @@ app.use((req, res) => {
   });
 });
 
-// ── Start server ──
-app.listen(PORT, () => {
-  console.log(`\n  🚀 Portfolio running at http://localhost:${PORT}\n`);
-});
+// ── Start server (local dev only; on Vercel the app is exported below) ──
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n  🚀 Portfolio running at http://localhost:${PORT}\n`);
+  });
+}
+
+module.exports = app;
