@@ -13,7 +13,7 @@
       "/images/projects/jungie/admin-dashboard.png",
       "/images/projects/jungie/thumbnail.jpg"
     ],
-    "description": "A production-grade, single-vendor e-commerce storefront for an LA-based handmade-pottery brand. Every piece is one of a kind, so instead of a cart-and-checkout flow I built an email-based reservation system that atomically holds a piece for one buyer. Serverless Next.js on AWS Lambda behind CloudFront, self-hosted auth with an admin back-office, and the entire cloud footprint provisioned as code with Terraform.",
+    "description": "A production-grade, single-vendor e-commerce storefront for an LA-based pottery brand. Every piece is one of a kind, so instead of a cart-and-checkout flow I built an email-based reservation system that holds a piece for one buyer. Serverless Next.js on AWS Lambda behind CloudFront, self-hosted auth with an admin back-office, and the entire cloud footprint provisioned as code with Terraform.",
     "role": "Solo Full-Stack Developer — Architecture, Frontend, Backend, Cloud Infrastructure, Auth & Email Deliverability",
     "tech": ["Next.js 15", "React 19", "TypeScript", "PostgreSQL 16", "Drizzle ORM", "Better Auth", "Zod", "OpenNext", "AWS (Lambda, CloudFront, RDS, S3, SES, SNS, Route 53, ACM, VPC)", "Terraform", "Docker", "Tailwind CSS"],
     "link": "https://jungiestudio.com",
